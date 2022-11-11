@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Overpass:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Todo App</title>
+  <style>
+    body{
+      margin: 0;
+      width: 360px;
+      background: hsl(235, 21%, 11%);
+    }
+    
+    html body.light{
+      background: hsl(236, 33%, 92%);
+    }
+    
+    #section1{
+      position: relative;
+       background-image: url("/To-do app/bg-mobile-dark.jpg");
+      background-repeat: no-repeat;
+      margin: 0px auto;
+      height: 200px;
+      padding-top: 2px;
+      z-index: 0;
+    }
+    
+    body #section1.light{
+      background-image: url("/To-do app/bg-mobile-light.jpg");
+    }
+    
+    #nav{
+      width: 90%;
+      height: 70px;
+      margin: 25px 25px;
+      display: flex;
+      flex-direction: row;
+      justify-content:space-between;
+    }
+    
+      .menuBtn{
+    margin-top: 15px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url("/To-do app/icon-sun.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #section1 .menuBtn.light{
+    background-image: url("/To-do app/icon-moon.svg");
+  }
+  
+  .todo{
+    font-family: "Josefin Sans";
+    color: white;
+    font-size: 25px;
+  }
+  
+  #input{
+    background: hsl(235, 24%, 19%);
+    width: 87%;
+    height: 40px;
+    margin: -20px 25px;
+    border-radius: 4px;
+  }
+  
+  #section1 #input.light{
+    background: hsl(0, 0%, 98%);
+  }
+  
+  .inputField{
+    position: relative;
+    top: -10px;
+    left: 47px;
+    outline: none;
+    border: none;
+    width: 83%;
+    background: none;
+    color: hsl(234, 11%, 52%);
+    font-family: "Josefin Sans";
+  }
+  
+  .circle{
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 1px solid hsl(237, 14%, 26%);
+    border-radius: 50%;
+    z-index: 5;
+    left: 20px;
+    top: 10px;
+  }
+  
+  #section1 .circle.light{
+    border: 1px solid hsl(233, 11%, 84%);
+  }
+  
+  ::placeholder{
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    color: hsl(234, 11%, 52%);
+  }
+  
+  #section2{
+    position: relative;
+    min-height: 50px;
+    width: 87%;
+    margin-top: -35px;
+    margin-left: 25px;
+    z-index: 10;
+    background: hsl(235, 24%, 19%);
+    border-radius: 4px;
+  }
+  
+  body #section2.light{
+    background: hsl(0, 0%, 98%);
+  }
+  
+  #section2 .border{
+    padding: 20px;
+    padding-left: 45px;
+    border-bottom: 1px solid hsl(237, 14%, 26%);
+    font-family: "Josefin Sans";
+    font-size: 11.9px;
+    color: hsl(234, 11%, 52%);
+    word-wrap: break-word;
+  }
+  
+  #section2 .border.light{
+    border-bottom: 1px solid hsl(233, 11%, 84%);
+  }
+  
+  #section2 input[type="checkbox"]{
+    display: none;
+  }
+  
+  #section2 label{
+    position: relative;
+    padding-left: 7px;
+  }
+  
+  #section2 label::before{
+    content: "";
+    position: absolute;
+    background: url("/To-do app/icon-check.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    top: 2px;
+    left: -20px;
+    transform: scale(0);
+    z-index: 5;
+  }
+  
+   #section2 input[type="checkbox"]:checked + label::before{
+     transform: scale(1);
+   }
+   
+   #section2 label::after{
+     content: "";
+     position: absolute;
+     width: 18px;
+     height: 18px;
+     border: 1px solid hsl(237, 14%, 26%);
+     left: -25px;
+     top: -3px;
+     border-radius: 50%;
+     z-index: 0;
+   }
+   
+   #section2 label.light::after{
+     border: 1px solid hsl(233, 11%, 84%);
+   }
+   
+   #section2 input[type="checkbox"]:checked + label::after{
+     background: linear-gradient(120deg,hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+   }
+  
+  #section2 #todos:hover{
+    color: hsl(236, 33%, 92%);
+    font-weight: bold;
+  }
+  
+  #section2 input[type="checkbox"]:checked + label.strike{
+    text-decoration: line-through;
+  }
+  
+  #todos .cancel{
+    width: 12px;
+    height: 12px;
+    background-image: url("/To-do app/icon-cross.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 280px;
+    margin-top: -12px;
+  }
+  
+ #section2 .btmText{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   font-family: "Josefin Sans";
+   font-size: 11.5px;
+   color: hsl(234, 11%, 52%);
+   padding: 10px 18px;
+   padding-bottom: 5px;
+ }
+ 
+ #section2 .btmText.light{
+   color: hsl(236, 9%, 61%);
+ }
+  
+  #section3{
+    position: relative;
+    background: hsl(235, 24%, 19%);
+    width: 87%;
+    height: 40px;
+    margin: 20px 25px;
+    border-radius: 4px;
+    z-index: 10;
+  }
+  
+  body #section3.light{
+    background: hsl(0, 0%, 98%);
+  }
+  
+  #section3 .text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    width: 60%;
+    margin-left: 65px;
+    color: hsl(233, 14%, 35%);
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  #section3 .text.light{
+    color: hsl(236, 9%, 61%);
+  }
+  
+  footer .p{
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-size: 13px;
+    color: hsl(237, 14%, 26%);
+    font-weight: bold;
+  }
+  
+  footer .p.light{
+    color: hsl(236, 9%, 61%);
+  }
+  
+  
+  </style>
+</head>
+<body>
+  <div id="section1">
+  <div id="nav">
+    <h1 class="todo">T O D O </h1>
+    <div class="menuBtn"></div>
+  </div>
+  <div id="input">
+    <div class="circle"></div>
+    <input class="inputField" type="text" name="createTodo" placeholder="Create a new todo..." >
+  </div>
+  </div>
+  <div id="section2">
+    <div id="myTodos"></div>
+    <!--
+   <div id="todos">
+     <input type="checkbox" id="check1">
+     <label for="check1">Complete online JavaScript course</label>
+     <div class="cancel"></div>
+   </div>
+   <div id="todos">
+     <input type="checkbox" id="check2">
+     <label for="check2">Jog around the park 3x</label>
+     <div class="cancel"></div>
+   </div>
+   <div id="todos">
+     <input type="checkbox" id="check3">
+     <label for="check3">10 minutes meditation</label>
+     <div class="cancel"></div>
+   </div>
+   <div id="todos">
+     <input type="checkbox" id="check4">
+     <label for="check4">Read for 1 hour</label>
+     <div class="cancel"></div>
+   </div>
+   <div id="todos">
+     <input type="checkbox" id="check5">
+     <label for="check5">Pick up groceries</label>
+     <div class="cancel"></div>
+   </div>
+   <div id="todos">
+     <input type="checkbox" id="check6">
+     <label for="check6">Complete Todo App on Frontend Mentor</label>
+     <div class="cancel"></div>
+   </div>
+   -->
+   <section class="btmText">
+     <p><span class="todoRemaining">0</span> items left</p>
+     <p><span class="todoCompleted">0</span> items completed</p>
+     </section>
+  </div>
+  <div id="section3">
+   <div class="text">
+    <p style="color:hsl(220, 98%, 61%)">All</p>
+    <p>Active</p>
+    <p>Completed</p>
+   </div>
+  </div>
+  <footer>
+    <p class="p">Drag and drop to reorder list</p>
+  </footer>
+  <script src="/To-do app/Sortable.js"></script>
+<script>
+var inputTodo = document.querySelector('.inputField');
+inputTodo.addEventListener('change',addTodo);
+var idNum = 0;
+var todoRemain = 0;
+var todoCompleted = 0;
+function addTodo(){
+  var remainingTodo = document.querySelector('.todoRemaining');
+  remainingTodo.textContent = ++todoRemain;
+  
+  var completedTodo = document.querySelector('.todoCompleted');
+  
+  idNum++;
+  var btmText = document.querySelector('.btmText');
+  var insertNew = document.querySelector('#section2');
+  var todoDiv = document.querySelector('#myTodos');
+  var newDiv = document.createElement('div');
+  
+  newDiv.className = 'border';
+
+  newDiv.onmouseover = ()=>{
+    newDiv.style.color = 'hsl(240, 50%, 45%)';
+    newDiv.style.fontWeight = 'bold';
+  }
+  
+  newDiv.onmouseout = ()=>{
+    newDiv.style.color = 'hsl(234, 11%, 52%)';
+    newDiv.style.fontWeight = 'normal';
+  }
+  
+  var newInput = document.createElement('input');
+  newInput.type = 'checkbox';
+  newInput.id = 'newCheck' + idNum;
+  newInput.name = 'newCheck';
+  newDiv.append(newInput);
+  
+ var newLabel = document.createElement('label');
+  newLabel.textContent = inputTodo.value;
+  newLabel.htmlFor = 'newCheck' + idNum;
+  newLabel.addEventListener('click',()=>{
+  var checkStrike = newLabel.classList.toggle('strike');
+  
+    if(checkStrike == true){
+     completedTodo.textContent = ++todoCompleted;
+     }
+     else if(checkStrike == false){
+      completedTodo.textContent = --todoCompleted;
+     }
+  })
+  newDiv.append(newLabel);
+  var cancelDiv = document.createElement('div');
+  cancelDiv.style.width = '12px';
+  cancelDiv.style.height = '12px';
+  cancelDiv.style.background = 'url("/To-do app/icon-cross.svg")';
+  cancelDiv.style.backgroundSize = 'contain';
+  cancelDiv.style.backgroundPosition = 'center';
+  cancelDiv.style.backgroundRepeat = 'no-repeat';
+  cancelDiv.style.position = 'absolute';
+  cancelDiv.style.left = '280px';
+  cancelDiv.style.marginTop = '-12px';
+  newDiv.append(cancelDiv);
+  
+  todoDiv.append(newDiv);
+  insertNew.insertBefore(todoDiv,btmText);
+  var cancelClicked = false;
+  cancelDiv.addEventListener('click',()=>{
+    newDiv.style.display = 'none';
+    remainingTodo.textContent = --todoRemain;
+    cancelClicked = true;
+  });
+}
+
+var todoDiv = document.querySelector('#myTodos');
+new Sortable(todoDiv,{
+    animation: 300
+  })
+
+//light theme toggling
+var sun = document.querySelector('.menuBtn');
+sun.addEventListener('click',()=>{
+var body = document.body;
+body.classList.toggle('light');
+var section1 = document.querySelector('#section1');
+section1.classList.toggle('light');
+var input = document.querySelector('#input');
+input.classList.toggle('light');
+var inputCircle = document.querySelector('.circle');
+inputCircle.classList.toggle('light');
+day = sun.classList.toggle('light');
+var section2 = document.querySelector('#section2');
+section2.classList.toggle('light');
+var section3 = document.querySelector('#section3');
+section3.classList.toggle('light');
+var btmText = document.querySelector('.btmText');
+btmText.classList.toggle('light');
+var section3Text = document.querySelector('.text');
+section3Text.classList.toggle('light');
+var footer = document.querySelector('.p');
+footer.classList.toggle('light');
+})
+
+</script>
+</body>
+</html>
