@@ -1,0 +1,261 @@
+body{
+  margin: 0;
+  width: 100%;
+  background: hsl(235, 21%, 11%);
+}
+
+html body.light{
+  background: hsl(236, 33%, 92%);
+}
+
+#section1{
+  position: relative;
+  background-image: url("bg-mobile-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px auto;
+  height: 200px;
+  padding-top: 2px;
+  z-index: 0;
+}
+
+body #section1.light{
+  background-image: url("bg-mobile-light.jpg");
+}
+
+#nav{
+  width: 90%;
+  height: 70px;
+  margin: 25px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+  .menuBtn{
+margin-top: 15px;
+margin-right: 5px;
+width: 20px;
+height: 20px;
+background-image: url("icon-sun.svg");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+#section1 .menuBtn.light{
+background-image: url("icon-moon.svg");
+}
+
+.todo{
+font-family: "Josefin Sans";
+color: white;
+font-size: 25px;
+}
+
+#input{
+background: hsl(235, 24%, 19%);
+width: 87%;
+height: 40px;
+margin: -20px 25px;
+border-radius: 4px;
+}
+
+#section1 #input.light{
+background: hsl(0, 0%, 98%);
+}
+
+.inputField{
+position: relative;
+top: -10px;
+left: 47px;
+outline: none;
+border: none;
+width: 83%;
+background: none;
+color: hsl(234, 11%, 52%);
+font-family: "Josefin Sans";
+}
+
+.circle{
+position: relative;
+width: 18px;
+height: 18px;
+border: 1px solid hsl(237, 14%, 26%);
+border-radius: 50%;
+z-index: 5;
+left: 20px;
+top: 10px;
+}
+
+#section1 .circle.light{
+border: 1px solid hsl(233, 11%, 84%);
+}
+
+::placeholder{
+font-family: "Josefin Sans";
+font-size: 14px;
+color: hsl(234, 11%, 52%);
+}
+
+#section2{
+position: relative;
+min-height: 50px;
+width: 87%;
+margin-top: -35px;
+margin-left: 25px;
+z-index: 10;
+background: hsl(235, 24%, 19%);
+border-radius: 4px;
+}
+
+body #section2.light{
+background: hsl(0, 0%, 98%);
+}
+
+#section2 .border{
+padding: 20px;
+padding-left: 45px;
+border-bottom: 1px solid hsl(237, 14%, 26%);
+font-family: "Josefin Sans";
+font-size: 11.9px;
+color: hsl(234, 11%, 52%);
+word-wrap: break-word;
+}
+
+#section2 .border.light{
+border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+
+#section2 input[type="checkbox"]{
+display: none;
+}
+
+#section2 label{
+position: relative;
+padding-left: 7px;
+}
+
+#section2 label::before{
+content: "";
+position: absolute;
+background: url("icon-check.svg");
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+width: 10px;
+height: 10px;
+top: 2px;
+left: -20px;
+transform: scale(0);
+z-index: 5;
+}
+
+#section2 input[type="checkbox"]:checked + label::before{
+ transform: scale(1);
+}
+
+#section2 label::after{
+ content: "";
+ position: absolute;
+ width: 18px;
+ height: 18px;
+ border: 1px solid hsl(237, 14%, 26%);
+ left: -25px;
+ top: -3px;
+ border-radius: 50%;
+ z-index: 0;
+}
+
+#section2 label.light::after{
+ border: 1px solid hsl(233, 11%, 84%);
+}
+
+#section2 input[type="checkbox"]:checked + label::after{
+ background: linear-gradient(120deg,hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+
+#section2 #todos:hover{
+color: hsl(236, 33%, 92%);
+font-weight: bold;
+}
+
+#section2 input[type="checkbox"]:checked + label.strike{
+text-decoration: line-through;
+}
+
+#todos .cancel{
+
+width: 12px;
+height: 12px;
+background-image: url("icon-cross.svg");
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+position: absolute;
+left: 280px;
+margin-top: -12px;
+}
+
+#section2 .btmText{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+font-family: "Josefin Sans";
+font-size: 11.5px;
+color: hsl(234, 11%, 52%);
+padding: 10px 18px;
+padding-bottom: 5px;
+}
+
+#section2 .btmText.light{
+color: hsl(236, 9%, 61%);
+}
+
+#section3{
+position: relative;
+background: hsl(235, 24%, 19%);
+width: 87%;
+height: 40px;
+margin: 20px 25px;
+border-radius: 4px;
+z-index: 10;
+}
+
+body #section3.light{
+background: hsl(0, 0%, 98%);
+}
+
+#section3 .text{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+justify-items: center;
+width: 60%;
+margin-left: 5em;
+color: hsl(233, 14%, 35%);
+font-weight: bold;
+font-size: 14px;
+}
+
+@media all and (min-width: 600px) {
+  #section3 .text{
+    margin-left: 15em;
+  }
+}
+
+#section3 .text.light{
+color: hsl(236, 9%, 61%);
+}
+
+footer .p{
+text-align: center;
+font-family: "Josefin Sans";
+font-size: 13px;
+color: hsl(237, 14%, 26%);
+font-weight: bold;
+}
+
+footer .p.light{
+color: hsl(236, 9%, 61%);
+}
